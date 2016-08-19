@@ -13,10 +13,4 @@
         android:textColor="#000"
         android:text="Page 3"
         />
-
-    <Button android:id="@+id/button1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="ボタン1" />
-
 </LinearLayout>
