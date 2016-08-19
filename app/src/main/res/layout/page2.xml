@@ -4,8 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center"
-    android:background="#99ff99"
+    android:background="#ffffff"
     android:textColor="#000"
-    android:text="Page 2"
+
     />
  
