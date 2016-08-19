@@ -14,19 +14,12 @@ import android.webkit.WebViewClient;
 
 
 public class MainActivity extends Activity {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        //レイアウトで指定したWebViewのIDを指定する。
-        WebView  myWebView = (WebView)findViewById(R.id.webView1);
-        //リンクをタップしたときに標準ブラウザを起動させない
-        myWebView.setWebViewClient(new WebViewClient());
-        //最初にgoogleのページを表示する。
-        myWebView.loadUrl("http://www.google.co.jp");
-        //jacascriptを許可する
-        myWebView.getSettings().setJavaScriptEnabled(true);
+        setContentView(R.layout.activity_main);
 
         ViewPager mViewPager = (ViewPager)findViewById(R.id.viewpager);
         PagerAdapter mPagerAdapter = new MyPagerAdapter();
@@ -44,6 +37,22 @@ public class MainActivity extends Activity {
             View layout ;
             layout = inflater.inflate(pages[position], null);
             ((ViewPager) container).addView(layout);
+
+            //Page2のViewの処理が走ったらWeb設定する
+            if(1 == position) {
+                WebView myWebView = (WebView) findViewById(R.id.webView1);
+
+                //リンクをタップしたときに標準ブラウザを起動させない
+                myWebView.setWebViewClient(new WebViewClient());
+
+                //最初にgoogleのページを表示する。
+                myWebView.loadUrl("http://www.google.co.jp");
+
+                //jacascriptを許可する
+                myWebView.getSettings().setJavaScriptEnabled(true);
+
+            }
+
             return layout;
         }
 
